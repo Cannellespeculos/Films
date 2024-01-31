@@ -8,6 +8,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\UsersController;
 
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,4 +60,5 @@ Route::controller(FilmController::class)->group(function () {
     Route::get('category/{slug}/films', 'index')->name('films.category');
     Route::get('actor/{slug}/films', 'index')->name('films.actor');
 });
+
 

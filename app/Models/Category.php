@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 class Category extends Model
 {
     use HasFactory;
+    protected $visible = ['name'];
 
     protected $fillable = ['name', 'slug'];
     public function films(): MorphToMany

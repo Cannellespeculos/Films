@@ -13,6 +13,7 @@ class Film extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = ['title', 'year', 'description', 'category_id'];
+    protected $hidden = ['id', 'created_at', 'updated_at', 'deleted_at'];
 
     public function categories(): MorphToMany
     {
@@ -22,5 +23,7 @@ class Film extends Model
     {
         return $this->morphedByMany(Actor::class, 'filmable');
     }
+
+
 }
 
