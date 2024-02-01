@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Actor::factory()->count(10)->create();
+
 
         $categories = [
             'Comédie',
@@ -27,14 +27,52 @@ class DatabaseSeeder extends Seeder
             'Guerre',
             'Policier',
             'Pornographique',
+            'Romance',
+            'Comédie dramatique',
+            'Aventure',
+            'Western',
+            'Science-fiction',
+            'Documentaire',
+            'Catastrophe',
+            'Historique',
+            'Thriller',
+
+        ];
+
+        $actors = [
+            'Brennan',
+            'Cannelle',
+            'Joan',
+            'Enzo',
+            'Ugo',
+            'Elevan',
+            'Ethan',
+            'Lilian',
+            'Lana',
+            'Darius',
+            'Joshua',
+            'Thais',
+            'Dylan',
+            'Loïc',
+            'Timothé',
+            'Lucas',
+            'Chloé',
+            'Ambrine',
+            'Clément',
+            'Noa',
+            'Jade',
         ];
 
         foreach($categories as $category) {
             Category::create(['name' => $category, 'slug' => str()->slug($category)]);
         }
 
-        $ids = range(1, 10);
-        Film::factory()->count(40)->create()->each(function ($film) use($ids) {
+        foreach($actors as $actor) {
+            Actor::create(['name' => $actor, 'slug' => str()->slug($actor)]);
+        }
+
+        $ids = range(1, 20);
+        Film::factory()->count(100)->create()->each(function ($film) use($ids) {
             shuffle($ids);
             $film->categories()->attach(array_slice($ids, 0, rand(1, 4)));
             shuffle($ids);

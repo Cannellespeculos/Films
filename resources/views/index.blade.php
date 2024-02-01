@@ -25,7 +25,7 @@
     @endif
     <div class="card">
         <header class="card-header">
-            <p class="card-header-title">Films</p>
+            <p class="card-header-title">{{ trans_choice(__('Il y a 1 Film|Il y a :films Films', ["films" => $all]), count($films)) }}</p>
             <div class="select">
                 <select onchange="window.location.href = this.value">
                     <option value="{{ route('films.index') }}" @unless($slug) selected @endunless>Toutes catégories</option>

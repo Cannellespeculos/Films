@@ -27,8 +27,10 @@ class FilmController extends Controller
             }
         }
         $query = $model ? $model->whereSlug($slug)->firstOrFail()->films() : Film::query();
-        $films = $query->withTrashed()->oldest('title')->paginate(5);
-        return view('index', compact('films', 'slug'));
+        $test = $query->withTrashed();
+        $all = count($test->get());
+        $films = $test->oldest('title')->paginate(5);
+        return view('index', compact('films', 'slug', 'all'));
     }
     public function create(): View
     {
