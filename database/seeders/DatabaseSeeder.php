@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
             'Catastrophe',
             'Historique',
             'Thriller',
+            'Erotique',
 
         ];
 
